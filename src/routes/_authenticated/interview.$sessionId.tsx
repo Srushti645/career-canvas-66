@@ -337,5 +337,3 @@ function FeedbackList({
     </div>
   );
 }
-
-export const dynamic = undefined;
