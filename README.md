@@ -1,14 +1,16 @@
-# Welcome to your Lovable project
+# Career Compass
+
+i need a whole code containing frontend and backend codes which gives high impact on students. the idea is about placement assistance app which often contains resume analyser, score  detector and which gives suggestions to improve the resume weightage and that conducts mock interviews using chatbot systems. Like this i need a complete website code which can be easily implemented and can be run on vs code
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/789cc654-beeb-4539-8df0-7ebc5566c0bd).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +22,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
