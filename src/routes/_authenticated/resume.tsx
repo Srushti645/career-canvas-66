@@ -286,6 +286,13 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
     low: "border-border text-muted-foreground",
   };
 
+  const sectionScores = report.section_scores ?? {};
+  const suggestions = report.suggestions ?? [];
+  const strengths = report.strengths ?? [];
+  const gaps = report.gaps ?? [];
+  const missingKeywords = report.missing_keywords ?? [];
+
+
   return (
     <div className="space-y-6">
       <Card className="panel">
@@ -297,7 +304,7 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
             </Badge>
             <p className="text-sm leading-relaxed text-foreground/90">{report.summary}</p>
             <div className="mt-5 space-y-3">
-              {Object.entries(report.section_scores).map(([key, value]) => (
+              {Object.entries(sectionScores).map(([key, value]) => (
                 <div key={key}>
                   <div className="mb-1 flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">{SECTION_LABELS[key] ?? key}</span>
@@ -316,7 +323,7 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
           <CardTitle className="text-base">Raise your resume weightage</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          {report.suggestions.map((suggestion, index) => (
+          {suggestions.map((suggestion, index) => (
             <div key={index} className="rounded-lg border border-border bg-secondary/40 p-4">
               <div className="flex items-start justify-between gap-3">
                 <p className="font-medium">{suggestion.title}</p>
@@ -337,7 +344,7 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {report.strengths.map((item, index) => (
+              {strengths.map((item, index) => (
                 <li key={index} className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                   {item}
@@ -353,7 +360,7 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
           </CardHeader>
           <CardContent>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              {report.gaps.map((item, index) => (
+              {gaps.map((item, index) => (
                 <li key={index} className="flex gap-2">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-destructive" />
                   {item}
@@ -364,13 +371,13 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
         </Card>
       </div>
 
-      {report.missing_keywords.length ? (
+      {missingKeywords.length ? (
         <Card className="panel">
           <CardHeader>
             <CardTitle className="text-base">Keywords recruiters look for</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-wrap gap-2">
-            {report.missing_keywords.map((keyword) => (
+            {missingKeywords.map((keyword) => (
               <Badge key={keyword} variant="outline" className="border-accent/40 text-accent">
                 {keyword}
               </Badge>
