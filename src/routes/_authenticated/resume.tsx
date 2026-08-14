@@ -286,6 +286,13 @@ function AnalysisReport({ report }: { report: AnalysisRow }) {
     low: "border-border text-muted-foreground",
   };
 
+  const sectionScores = report.section_scores ?? {};
+  const suggestions = report.suggestions ?? [];
+  const strengths = report.strengths ?? [];
+  const gaps = report.gaps ?? [];
+  const missingKeywords = report.missing_keywords ?? [];
+
+
   return (
     <div className="space-y-6">
       <Card className="panel">
