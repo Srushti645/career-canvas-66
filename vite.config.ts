@@ -10,7 +10,7 @@ import { loadEnv } from "vite";
 // Local dev: expose non-VITE_ server secrets from .env (e.g. LOVABLE_API_KEY) to
 // server functions via process.env. They never reach the browser bundle, which only
 // receives VITE_* variables. Real environment variables take precedence.
-const serverEnv = loadEnv(process.env.NODE_ENV ?? "development", process.cwd(), "");
+const serverEnv = loadEnv(process.env["NODE_ENV"] ?? "development", process.cwd(), "");
 for (const [key, value] of Object.entries(serverEnv)) {
   if (!key.startsWith("VITE_") && process.env[key] === undefined) process.env[key] = value;
 }
