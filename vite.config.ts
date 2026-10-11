@@ -6,6 +6,7 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 import { loadEnv } from "vite";
+import { liveVoiceDev } from "./live-vite-plugin";
 
 // Local dev: expose non-VITE_ server secrets from .env (e.g. LOVABLE_API_KEY) to
 // server functions via process.env. They never reach the browser bundle, which only
@@ -16,6 +17,7 @@ for (const [key, value] of Object.entries(serverEnv)) {
 }
 
 export default defineConfig({
+  vite: { plugins: [liveVoiceDev()] },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
